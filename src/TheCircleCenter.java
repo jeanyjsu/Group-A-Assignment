@@ -1,20 +1,28 @@
 import java.util.Scanner;
-
-public class CircleCenterMirror {
-     public static void main(String[] args) {
-          int width, height, blockWidth, blockHeight;
+public class TheCircleCenter {
+     public static void main(String[] args){
+          int width, height;
+          int radius;
           System.out.println("Please enter a width for the block: ");
           Scanner scan = new Scanner(System.in);
-          width = (scan.nextInt()) / 2;
+          width = scan.nextInt();
           System.out.println("Please enter a height for the block: ");
-          height = (scan.nextInt()) / 2;
-          for (blockWidth = 1; blockWidth <= width; blockWidth++) {
-               for (blockHeight = 1; blockHeight == height; blockHeight--) {
+          height = scan.nextInt();
+          radius = width/4;
 
-                    System.out.print("#");
+
+
+          for (width = -radius; width <= radius; width++){
+               for (height = -radius; height <= radius; height++){
+                    if (width*width + height*height <= (radius*radius)){
+                         System.out.print("O ");
+                    }
+                    else{
+                         System.out.print("# ");
+                    }
                }
-               System.out.println("*");
+               System.out.println("");
+               scan.close();
           }
-          scan.close();
-     }
+    }
 }
